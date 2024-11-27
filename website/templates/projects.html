@@ -5,7 +5,7 @@
     <div class="row mb-5">
         <div class="col-md-8 offset-md-2 text-center">
             <h1 class="display-4 fw-bold gradient-text">Projects</h1>
-            <p class="lead text-muted">
+            <p class="lead text-muted mb-5">
                 Explore my latest data science and machine learning projects
             </p>
         </div>
@@ -33,13 +33,11 @@
         {% for project in projects.projects %}
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
             <div class="card project-card h-100">
-                {% if project.image %}
                 <div class="card-img-wrapper">
                     <img src="{{ url_for('static', filename='images/' + project.image) }}" 
                          class="card-img-top" 
                          alt="{{ project.title }}">
                 </div>
-                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title fw-bold">{{ project.title }}</h5>
                     <p class="card-text text-muted">{{ project.description }}</p>
@@ -69,4 +67,30 @@
         <p class="lead text-muted">No projects found matching your search.</p>
     </div>
 </section>
+
+<style>
+.card-img-wrapper {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.tech-stack {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+</style>
 {% endblock %} 

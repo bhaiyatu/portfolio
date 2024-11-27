@@ -5,14 +5,14 @@
       "description": "Built a machine learning model to predict future sales using historical data and external factors.",
       "technologies": ["Python", "Scikit-learn", "Pandas", "Plotly"],
       "github_url": "https://github.com/yourusername/sales-prediction",
-      "image": "sales-prediction.jpg"
+      "image": "Forecast-Sales-using-Machine-Learning.jpeg"
     },
     {
       "title": "Customer Segmentation",
       "description": "Implemented K-means clustering to segment customers based on their purchasing behavior.",
       "technologies": ["Python", "Scikit-learn", "Matplotlib", "Seaborn"],
       "github_url": "https://github.com/yourusername/customer-segmentation",
-      "image": "customer-segmentation.jpg"
+      "image": "Customer-segmentation-min.png"
     }
   ]
 } 
