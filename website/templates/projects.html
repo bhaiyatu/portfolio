@@ -1,15 +1,59 @@
 {% extends "base.html" %}
-{% block title %}Projects - Portfolio{% endblock %}
+
 {% block content %}
-<h2>My Projects</h2>
-<div class="project-card">
-    <h3>Revenue Assurance Dashboard</h3>
-    <p>Developed ETL workflows in Python and SQL to identify high-risk areas, saving significant costs.</p>
-    <a href="https://github.com/your-github-link" target="_blank">View Code</a>
-</div>
-<div class="project-card">
-    <h3>Energy Tariff Analysis</h3>
-    <p>Created dynamic models to analyze tariff trends using pandas and visualization libraries.</p>
-    <a href="#">View Project</a>
-</div>
-{% endblock %}
+<section class="projects-section" data-aos="fade-up">
+    <div class="row mb-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="display-4 fw-bold gradient-text">Projects</h1>
+            <p class="lead text-muted">
+                Explore my latest data science and machine learning projects
+            </p>
+        </div>
+    </div>
+
+    <!-- Search and Filter -->
+    <div class="row mb-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="input-group">
+                <input type="text" id="searchProjects" class="form-control search-input" placeholder="Search projects...">
+                <button class="btn btn-primary" type="button">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4" id="projects-container">
+        {% for project in projects.projects %}
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="card project-card h-100">
+                {% if project.image %}
+                <div class="card-img-wrapper">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" 
+                         class="card-img-top" 
+                         alt="{{ project.title }}">
+                </div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ project.title }}</h5>
+                    <p class="card-text text-muted">{{ project.description }}</p>
+                    <div class="tech-stack">
+                        {% for tech in project.technologies %}
+                        <span class="badge bg-light text-dark me-2 mb-2">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-4">
+                    <a href="{{ project.github_url }}" 
+                       class="btn btn-primary w-100" 
+                       target="_blank">
+                        <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %} 
