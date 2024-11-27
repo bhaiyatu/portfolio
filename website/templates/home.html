@@ -5,58 +5,19 @@
 <section class="hero-section text-center py-5" data-aos="fade-up">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 class="display-3 fw-bold mb-4 gradient-text">Data Science Portfolio</h1>
+            <div class="profile-image mb-4">
+                <img src="{{ url_for('static', filename='images/profile.jpeg') }}" 
+                     alt="Umar Bhaiyat" 
+                     class="rounded-circle profile-img">
+            </div>
+            <h1 class="display-3 fw-bold mb-4 gradient-text">Hi, I'm Umar</h1>
             <p class="lead text-muted mb-5">
-                Transforming complex data into meaningful insights through innovative solutions and cutting-edge technology.
+                A passionate Data Professional with expertise in analytics and data engineering. 
+                I transform complex data into actionable insights and build innovative solutions using cutting-edge technology.
             </p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="{{ url_for('projects') }}" class="btn btn-primary">View Projects</a>
-                <a href="{{ url_for('skills') }}" class="btn btn-outline-primary">Explore Skills</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Skills Section -->
-<section class="py-5" data-aos="fade-up" data-aos-delay="100">
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <svg class="feature-icon" width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h5 class="card-title">Data Analysis</h5>
-                    <p class="card-text text-muted">Expert in exploratory data analysis, statistical modeling, and visualization.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <svg class="feature-icon" width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h5 class="card-title">Machine Learning</h5>
-                    <p class="card-text text-muted">Experience with supervised and unsupervised learning algorithms.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <svg class="feature-icon" width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                        </svg>
-                    </div>
-                    <h5 class="card-title">Data Engineering</h5>
-                    <p class="card-text text-muted">Skilled in data pipelines, ETL processes, and database management.</p>
-                </div>
+                <a href="{{ url_for('cv') }}" class="btn btn-outline-primary">Download CV</a>
             </div>
         </div>
     </div>
