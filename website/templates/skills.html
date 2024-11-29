@@ -5,24 +5,9 @@
     <div class="row mb-5">
         <div class="col-md-8 offset-md-2 text-center">
             <h1 class="display-4 fw-bold gradient-text">Skills & Expertise</h1>
-            <p class="lead text-muted mb-4">
+            <p class="lead text-muted mb-5">
                 A comprehensive overview of my technical expertise and professional capabilities
             </p>
-            <!-- Add search bar -->
-            <div class="search-container mb-5">
-                <div class="input-group">
-                    <input type="text" 
-                           id="skillSearch" 
-                           class="form-control search-input" 
-                           placeholder="Search skills...">
-                    <button class="btn btn-outline-secondary" type="button" id="clearSkillSearch">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -92,83 +77,6 @@
     </div>
 </section>
 
-<!-- Add JavaScript for search functionality -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('skillSearch');
-    const clearButton = document.getElementById('clearSkillSearch');
-    const skillBadges = document.querySelectorAll('.badge');
-
-    function searchSkills(searchTerm) {
-        skillBadges.forEach(badge => {
-            const skill = badge.textContent.toLowerCase();
-            const matches = skill.includes(searchTerm.toLowerCase());
-            
-            if (matches) {
-                // Make matching skills more prominent
-                badge.style.transform = 'scale(1.1)';
-                badge.style.opacity = '1';
-                if (badge.classList.contains('bg-primary-soft')) {
-                    badge.style.backgroundColor = 'rgba(37, 99, 235, 0.25)';
-                } else if (badge.classList.contains('bg-success-soft')) {
-                    badge.style.backgroundColor = 'rgba(16, 185, 129, 0.25)';
-                } else if (badge.classList.contains('bg-info-soft')) {
-                    badge.style.backgroundColor = 'rgba(6, 182, 212, 0.25)';
-                }
-                badge.style.fontWeight = '600';
-            } else {
-                badge.style.transform = 'scale(1)';
-                badge.style.opacity = '0.4';
-                if (badge.classList.contains('bg-primary-soft')) {
-                    badge.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-                } else if (badge.classList.contains('bg-success-soft')) {
-                    badge.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
-                } else if (badge.classList.contains('bg-info-soft')) {
-                    badge.style.backgroundColor = 'rgba(6, 182, 212, 0.1)';
-                }
-                badge.style.fontWeight = '500';
-            }
-        });
-    }
-
-    searchInput.addEventListener('input', (e) => {
-        if (e.target.value === '') {
-            skillBadges.forEach(badge => {
-                badge.style.transform = 'scale(1)';
-                badge.style.opacity = '1';
-                if (badge.classList.contains('bg-primary-soft')) {
-                    badge.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-                } else if (badge.classList.contains('bg-success-soft')) {
-                    badge.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
-                } else if (badge.classList.contains('bg-info-soft')) {
-                    badge.style.backgroundColor = 'rgba(6, 182, 212, 0.1)';
-                }
-                badge.style.fontWeight = '500';
-            });
-        } else {
-            searchSkills(e.target.value);
-        }
-    });
-
-    clearButton.addEventListener('click', () => {
-        searchInput.value = '';
-        skillBadges.forEach(badge => {
-            badge.style.transform = 'scale(1)';
-            badge.style.opacity = '1';
-            if (badge.classList.contains('bg-primary-soft')) {
-                badge.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-            } else if (badge.classList.contains('bg-success-soft')) {
-                badge.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
-            } else if (badge.classList.contains('bg-info-soft')) {
-                badge.style.backgroundColor = 'rgba(6, 182, 212, 0.1)';
-            }
-            badge.style.fontWeight = '500';
-        });
-        searchInput.focus();
-    });
-});
-</script>
-
 <style>
 .bg-primary-soft { background-color: rgba(37, 99, 235, 0.1); color: var(--primary-color); }
 .bg-success-soft { background-color: rgba(16, 185, 129, 0.1); color: #059669; }
@@ -188,15 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-}
-
-.badge {
-    transition: all 0.3s ease;
-}
-
-.search-container {
-    max-width: 500px;
-    margin: 0 auto;
 }
 </style>
 {% endblock %} 
