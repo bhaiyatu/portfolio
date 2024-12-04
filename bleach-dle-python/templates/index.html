@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleach-dle - Daily Bleach Character Guessing Game</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/bleach-dle-logo.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <img src="{{ url_for('static', filename='images/bleach-dle-logo.png') }}" alt="Bleach-dle" class="game-logo">
+            <p>Guess the Bleach character!</p>
+            <p class="next-character-timer">Next character in: <span id="countdown">Loading...</span></p>
+        </div>
+
+        <div class="guess-section">
+            <div class="guess-input-container">
+                <div class="input-with-button">
+                    <input type="text" id="guess-input" placeholder="Enter character name..." autocomplete="off">
+                    <button id="guess-button" class="guess-button">Guess</button>
+                </div>
+                <div id="suggestions-dropdown" class="suggestions-dropdown" style="display: none;"></div>
+            </div>
+
+            <div class="guess-grid">
+                <div class="grid-headers">
+                    <div class="header-cell">Character<div class="tooltip">The name of the Bleach character</div></div>
+                    <div class="header-cell">Gender<div class="tooltip">The character's gender (Male/Female)</div></div>
+                    <div class="header-cell">Occupation<div class="tooltip">The character's primary role or job title</div></div>
+                    <div class="header-cell">Affiliations<div class="tooltip">Groups, organizations, or factions the character belongs to</div></div>
+                    <div class="header-cell">Zanpakuto Type<div class="tooltip">The type and abilities of the character's Zanpakuto</div></div>
+                    <div class="header-cell">Debut Arc<div class="tooltip">The story arc where the character first appeared</div></div>
+                    <div class="header-cell">Powers<div class="tooltip">Special abilities, techniques, and powers the character possesses</div></div>
+                    <div class="header-cell">Locations<div class="tooltip">Notable places where the character has lived or operated</div></div>
+                </div>
+                <div id="guesses" class="guesses"></div>
+            </div>
+
+            <div class="color-indicators">
+                <div class="indicator">
+                    <div class="indicator-color indicator-correct"></div>
+                    <span class="indicator-label">Correct</span>
+                </div>
+                <div class="indicator">
+                    <div class="indicator-color indicator-partial"></div>
+                    <span class="indicator-label">Partial</span>
+                </div>
+                <div class="indicator">
+                    <div class="indicator-color indicator-incorrect"></div>
+                    <span class="indicator-label">Incorrect</span>
+                </div>
+                <div class="indicator">
+                    <div class="indicator-color indicator-after"></div>
+                    <span class="indicator-label">After</span>
+                </div>
+                <div class="indicator">
+                    <div class="indicator-color indicator-before"></div>
+                    <span class="indicator-label">Before</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html> 
