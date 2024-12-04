@@ -6,6 +6,7 @@
     <title>Umar Bhaiyat - Data Science Portfolio</title>
     {{ bootstrap.load_css() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -39,10 +40,6 @@
                         <a class="nav-link {{ 'active' if request.endpoint == 'certifications' }}" 
                            href="{{ url_for('certifications') }}">Certifications</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ 'active' if request.endpoint == 'contact' }}" 
-                           href="{{ url_for('contact') }}">Contact</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -53,7 +50,6 @@
     </main>
 
     {{ bootstrap.load_js() }}
-    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
     <script>
         AOS.init();
     </script>

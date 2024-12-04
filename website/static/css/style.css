@@ -43,8 +43,12 @@ body {
 .badge {
     padding: 0.5rem 1rem;
     border-radius: 9999px;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.875rem;
+    margin: 0.25rem;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Project Cards */
@@ -121,51 +125,23 @@ body {
     border-radius: 4px;
 }
 
-/* Add these styles for the search functionality */
-.search-input {
-    border-radius: 9999px 0 0 9999px;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.search-input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.input-group .btn {
-    border-radius: 0 9999px 9999px 0;
-    padding: 0.75rem 1.5rem;
-}
-
-/* Animation for search results */
-.project-card {
-    transition: all 0.3s ease;
-}
-
-[data-search-hidden="true"] {
-    opacity: 0;
-    transform: scale(0.95);
-}
-
 /* Profile Image */
 .profile-img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
-    border: 4px solid white;
+    border: 3px solid white;
     box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.1),
-        0 6px 6px rgba(0, 0, 0, 0.06);
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 4px 4px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
 }
 
 .profile-img:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 
-        0 0 20px rgba(37, 99, 235, 0.2),
-        0 0 60px rgba(37, 99, 235, 0.1);
+        0 0 16px rgba(37, 99, 235, 0.2),
+        0 0 48px rgba(37, 99, 235, 0.1);
 }
 
 /* Navbar Brand */
@@ -270,5 +246,228 @@ body {
 .theme-toggle svg {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+/* Add these new styles to optimize spacing */
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin-top: -6rem;
+}
+
+.home-content {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Adjust spacing between elements */
+.home-content > * {
+    margin-bottom: 0.75rem;
+}
+
+.home-content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Update the social icons styling */
+.social-icon-link {
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Project card image styles */
+.project-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.375rem 0.375rem 0 0;
+    padding: 1rem;
+}
+
+.project-card {
+    transition: transform 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Project card content styles */
+.project-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .btn {
+    margin-top: auto;
+    align-self: center;
+}
+
+/* Technology badges */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    margin: 0.25rem;
+    background: var(--primary-color);
+    color: white;
+    display: inline-block;
+}
+
+.technologies-container {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Technology badge colors */
+.badge.badge-python {
+    background-color: #4285f4;
+    color: white;
+}
+
+.badge.badge-data {
+    background-color: #34a853;
+    color: white;
+}
+
+.badge.badge-viz {
+    background-color: #00acc1;
+    color: white;
+}
+
+/* Update badge styling to be more pill-like */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 400;
+    font-size: 0.875rem;
+    margin: 0.25rem;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styling to match the image */
+.btn-python {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+}
+
+.btn-data {
+    background-color: #34a853;
+    color: white;
+    border: none;
+}
+
+.btn-viz {
+    background-color: #00acc1;
+    color: white;
+    border: none;
+}
+
+.btn-python:hover, .btn-data:hover, .btn-viz:hover {
+    transform: translateY(-2px);
+    color: white;
+    filter: brightness(1.1);
+}
+
+/* Project color schemes */
+.project-color-1 {
+    --project-color: #4285f4;  /* Python/ML blue */
+    --project-color-light: #ecf3ff;
+}
+
+.project-color-2 {
+    --project-color: #34a853;  /* Data Engineering green */
+    --project-color-light: #ecf8f0;
+}
+
+.project-color-3 {
+    --project-color: #00acc1;  /* Visualization cyan */
+    --project-color-light: #e6f7f9;
+}
+
+/* Badge styling using project colors */
+.project-card .badge {
+    background-color: var(--project-color-light);
+    color: var(--project-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin: 0.25rem;
+    border: none;
+    display: inline-block;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styling using project colors */
+.project-card .btn {
+    background-color: var(--project-color-light);
+    color: var(--project-color);
+    border: none;
+    margin-top: auto;
+    align-self: center;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.project-card .btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--project-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Project card refinements */
+.project-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.project-card .card-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.project-card .card-text {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.technologies-container {
+    margin: 1rem 0 1.5rem 0;
+    text-align: center;
+}
+
+/* Tableau icon styling */
+.tableau-icon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -3px;
 }
 

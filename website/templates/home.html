@@ -1,25 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="hero-section text-center py-5" data-aos="fade-up">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="profile-image mb-4">
-                <img src="{{ url_for('static', filename='images/profile.jpeg') }}" 
-                     alt="Umar Bhaiyat" 
-                     class="rounded-circle profile-img">
-            </div>
-            <h1 class="display-3 fw-bold mb-4 gradient-text">Hi, I'm Umar</h1>
-            <p class="lead text-muted mb-5">
-                A passionate Data Professional with expertise in analytics and data engineering. 
-                I transform complex data into actionable insights and build innovative solutions using cutting-edge technology.
-            </p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="{{ url_for('projects') }}" class="btn btn-primary">View Projects</a>
-                <a href="{{ url_for('cv') }}" class="btn btn-outline-primary">Download CV</a>
-            </div>
+<div class="home-container" data-aos="fade-up">
+    <div class="home-content">
+        <img src="{{ url_for('static', filename='images/profile.jpeg') }}" alt="Profile Photo" class="profile-img rounded-circle mb-3">
+        <h1 class="gradient-text mb-2 fw-bold">Hi, I'm Umar</h1>
+        <p class="lead mb-3">A data professional with a passion for building innovative solutions.</p>
+        <div class="social-links mb-4">
+            <a href="https://linkedin.com/in/umar-bhaiyat" class="social-icon-link mx-2" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="mailto:bhaiyatu@icloud.com" class="social-icon-link mx-2">
+                <i class="fas fa-envelope fa-2x"></i>
+            </a>
+            <a href="https://github.com/umarbhaiyat" class="social-icon-link mx-2" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
         </div>
     </div>
-</section>
+</div>
 {% endblock %} 

@@ -1,61 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="projects-section" data-aos="fade-up">
-    <div class="row mb-5">
-        <div class="col-md-8 offset-md-2 text-center">
-            <h1 class="display-4 fw-bold gradient-text">Projects</h1>
-            <p class="lead text-muted mb-5">
-                Explore my latest data science and machine learning projects
-            </p>
-        </div>
+<div class="container" data-aos="fade-up">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 fw-bold gradient-text">Projects</h1>
+        <p class="lead text-muted mb-5">
+            A collection of projects showcasing my skills and expertise.
+        </p>
     </div>
-
-    <!-- Search and Filter -->
-    <div class="row mb-4">
-        <div class="col-md-8 offset-md-2">
-            <div class="input-group">
-                <input type="text" 
-                       id="searchProjects" 
-                       class="form-control search-input" 
-                       placeholder="Search by project name, description, or technology...">
-                <button class="btn btn-outline-secondary" type="button" id="clearSearch">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row g-4" id="projects-container">
+    
+    <!-- Projects Grid -->
+    <div class="row g-4">
         {% for project in projects.projects %}
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-            <div class="card project-card h-100">
-                <div class="card-img-wrapper">
-                    <img src="{{ url_for('static', filename='images/' + project.image) }}" 
-                         class="card-img-top" 
-                         alt="{{ project.title }}">
-                </div>
+        <div class="col-md-4 project-color-{{ loop.index }}">
+            <div class="card h-100 project-card">
+                <img src="{{ url_for('static', filename='images/projects/' + project.image) }}" 
+                     class="card-img-top" alt="{{ project.title }}">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ project.title }}</h5>
-                    <p class="card-text text-muted">{{ project.description }}</p>
-                    <div class="tech-stack">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <div class="technologies-container">
                         {% for tech in project.technologies %}
-                        <span class="badge bg-light text-dark me-2 mb-2">{{ tech }}</span>
+                            <span class="badge">{{ tech }}</span>
                         {% endfor %}
                     </div>
-                </div>
-                <div class="card-footer bg-transparent border-0 pb-4">
-                    <a href="{{ project.github_url }}" 
-                       class="btn btn-primary w-100" 
-                       target="_blank">
-                        <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                        View on GitHub
+                    {% if project.display_type == 'github' %}
+                    <a href="{{ project.url }}" class="btn" target="_blank">
+                        <i class="fab fa-github me-2"></i>View on Github
                     </a>
+                    {% elif project.display_type == 'tableau' %}
+                    <a href="{{ project.url }}" class="btn" target="_blank">
+                        <svg class="tableau-icon me-2" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 60 60">
+                            <path d="M28.24 38.4h4.08v-8.16h8.16v-4.08h-8.16v-8.16h-4.08v8.16h-8.16v4.08h8.16v8.16zm22.44-21.42v3.06h-6.12v6.12h-3.06v-6.12h-6.12v-3.06h6.12v-6.12h3.06v6.12h6.12zm-30.6 30.6v3.06h-6.12v6.12H10.9v-6.12H4.78v-3.06h6.12v-6.12h3.06v6.12h6.12zM56.1 2.45v7.14h-7.14V2.45h7.14zm-45.9 0h7.14v7.14h-7.14V2.45zm0 45.9h7.14v7.14h-7.14v-7.14zm45.9 0v7.14h-7.14v-7.14h7.14zM32.3 2.45h7.14v7.14H32.3V2.45zm0 45.9h7.14v7.14H32.3v-7.14zM20.06 2.45h7.14v7.14h-7.14V2.45zm0 45.9h7.14v7.14h-7.14v-7.14z"/>
+                        </svg>View on Tableau
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -63,34 +42,8 @@
     </div>
 
     <!-- No Results Message -->
-    <div id="noResultsMessage" style="display: none;" class="text-center mt-5">
+    <div id="noResultsMessage" style="display: none;" class="text-center mt-4">
         <p class="lead text-muted">No projects found matching your search.</p>
     </div>
-</section>
-
-<style>
-.card-img-wrapper {
-    height: 200px;
-    overflow: hidden;
-    border-radius: 1rem 1rem 0 0;
-}
-
-.card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .card-img-top {
-    transform: scale(1.05);
-}
-
-.tech-stack {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-</style>
+</div>
 {% endblock %} 
