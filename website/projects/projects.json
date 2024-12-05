@@ -9,12 +9,12 @@
       "image": "Sales-Dashboard.png"
     },
     {
-      "title": "Customer Segmentation",
-      "description": "Implemented K-means clustering to segment customers based on their purchasing behavior.",
+      "title": "Linear Regression Model",
+      "description": "Implemented a simple Linear Regression Model to predict the yearly amount spent by customers.",
       "technologies": ["Python", "Scikit-learn", "Matplotlib", "Seaborn"],
-      "url": "https://tableau.com/your-dashboard",
+      "url": "https://github.com/bhaiyatu/portfolio/blob/main/data-analysis/LinearRegressionImplementation/Linear%20Regression%20ML%20Implementation.ipynb",
       "display_type": "github",
-      "image": "Customer-segmentation-min.png"
+      "image": "Linear-Regression-Model.png"
     },
     {
       "title": "Customer Segmentation",
