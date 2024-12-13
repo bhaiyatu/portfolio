@@ -11,3 +11,5 @@ Project Contents
 - Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience.
 - docker-compose: This file contains the definition to run the postgres database in a Docker container. 
 - airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project. For my project I manually input them using the Airflow UI.
+
+![ETL Pipeline drawio-2](https://github.com/user-attachments/assets/6e5d133d-3324-4918-87ac-98df10e8be48)
